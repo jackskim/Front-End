@@ -16,14 +16,14 @@ const LoginSchema = Yup.object().shape({
 function Login (props, { errors, touched, values, isSubmitting }) {
   
   return (
-    <Container>
+    <Container className="container" >
       <Header as="h1">Login</Header>
         <Formik
           initialValues={{ email: '', password: ''}}
           validationSchema={LoginSchema}
           onSubmit={( values, { resetForm, setErrors, setSubmitting, setStatus }) => {
             // Where we write our form submission code (HTTP requests, etc.)
-            axios.post("https://umts-backend.herokuapp.com/api/auth/login", values )
+            axios.post('https://umts-backend.herokuapp.com/api/auth/login', values )
               .then( res => {
                 //console.log(res);
                 setSubmitting(false);
@@ -38,8 +38,9 @@ function Login (props, { errors, touched, values, isSubmitting }) {
           }}
         >
         {({ isSubmitting, errors, touched }) => (
-          <Form>
+          <Form className="form">
             <Field
+              className="field"
               component="input"
               type="email"
               name="email"
@@ -47,13 +48,14 @@ function Login (props, { errors, touched, values, isSubmitting }) {
             />
             { touched.email && errors.email && <p className="form__error">{errors.email}</p> }
             <Field
+              className="field"
               component="input"
               type="password"
               name="password"
               placeholder="Password"
             />
             { touched.password && errors.password && <p className="form__error">{errors.password}</p> }
-            <Button type="submit" disabled={isSubmitting}>Login</Button> 
+            <Button className="button" type="submit" disabled={isSubmitting}>Login</Button> 
           </Form>
         )}
       </Formik>
