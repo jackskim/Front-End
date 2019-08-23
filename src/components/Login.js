@@ -46,15 +46,15 @@ function Login (props, { errors, touched, values, isSubmitting }) {
               name="email"
               placeholder="Email"
             />
-            { touched.email && errors.email && <p className="form__error">{errors.email}</p> }
+            { touched.email && errors.email && <span className="form__error">{errors.email}</span> }
             <Field
-              className="field"
+              className="field field-password"
               component="input"
               type="password"
               name="password"
               placeholder="Password"
             />
-            { touched.password && errors.password && <p className="form__error">{errors.password}</p> }
+            { touched.password && errors.password && <span className="form__error">{errors.password}</span> }
             <Button className="button" type="submit" disabled={isSubmitting}>Login</Button> 
           </Form>
         )}
