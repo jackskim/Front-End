@@ -21,19 +21,17 @@ function Login (props) {
         <Formik
           initialValues={{ email: '', password: ''}}
           validationSchema={LoginSchema}
-          onSubmit={( values, { resetForm, setErrors, setSubmitting, setStatus }) => {
+          onSubmit={( values, { resetForm, setStatus }) => {
             // Where we write our form submission code (HTTP requests, etc.)
             axios.post('https://umts-backend.herokuapp.com/api/auth/login', values )
               .then( res => {
-                //console.log(res);
-                setSubmitting(false);
                 resetForm();
                 localStorage.setItem('token', res.data.token);
                 props.history.push('/dashboard');
               })
               .catch( err => {
                 console.log(err);
-                setSubmitting(false);
+                setStatus(err);
               })
           }}
         >
