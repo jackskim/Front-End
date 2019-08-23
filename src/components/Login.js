@@ -13,16 +13,8 @@ const LoginSchema = Yup.object().shape({
     .required('Please enter a password')
 });
 
-function Login (props, { errors, touched, values, isSubmitting, status }) {
-
-  const [ userInfo, setUserInfo] = useState([]);
-
-  useEffect(() => {
-    if(status) {
-      setUserInfo([...status]);
-    }
-  }, [status])
-
+function Login (props, { errors, touched, values, isSubmitting }) {
+  
   return (
     <Container>
       <Header as="h1">Login</Header>
@@ -33,9 +25,8 @@ function Login (props, { errors, touched, values, isSubmitting, status }) {
             // Where we write our form submission code (HTTP requests, etc.)
             axios.post("https://umts-backend.herokuapp.com/api/auth/login", values )
               .then( res => {
-                console.log(res);
+                //console.log(res);
                 setSubmitting(false);
-                setStatus(res.data);
                 resetForm();
                 localStorage.setItem('token', res.data.token);
                 props.history.push('/dashboard');
