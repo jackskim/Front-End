@@ -1,94 +1,68 @@
-# TSTUFF
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Proposal
+## Available Scripts
 
-- What problem does your app solve?
+In the project directory, you can run:
 
-  Provides a service for people that need tech stuff for a only a short period of time and enables them to rent products rather than purchasing them.
+### `npm start`
 
-- Be as specific as possible; how does your app solve the problem?
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-  Provides a site for users trying to advertise their tech rental and a means for users to actually get into contact and rent those products.
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-- What is the mission statement?
+### `npm test`
 
-  The only place to rent your tech.
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Features
+### `npm run build`
 
-- What features are required for your minimum viable product?
-  - Users can log in and create a profile.
-  - They can then set up items they have for rent such as cameras, TVs, Party equipment like speakers/fog machines etc.
-  - Users will be able to Create, Read, Update and Delete rental data.
-  - A 2nd user can log in and see items that users have for rent and ask to rent an item. No payment processing necessary for MVP.
-  
-- What features may you wish to put in a future release?
-  - The ability to review previous transactions / renters.
-  - Add a payment option into the application allowing people to pay over paypal/stripe etc. to rent their items, schedule a time and place for pick up etc.
-  - Add a review system into the app so that the social aspect is there to ensure that users are legit.
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- What do the top 3 similar apps do for their users?
-  - AirBnb:
-    - Let’s homeowners rent out their living spaces for a price
-    - Let’s tourists find living spaces to stay (and get a more unique experience)
-    - Allows users to register and login to view their booking information
-    
-  - LetGo:  
-    - Let’s users search through a feed of user made posts 
-    - Let’s users cut out the middle man and enables them to make an immediate transaction.
-    
-  - Thumbtack:
-    - Let’s users search for services by category and location
-		- Provides a clean design and easy-to-use layout
-	
-## Frameworks - Libraries
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-- What 3rd party frameworks/libraries are you considering using?
-	- Semantic UI
-	- Axios
-	- Formik
-	- Font Awesome
-	- LESS
-- Do APIs require you to contact its maintainer to gain access?
-	- No
-- Are you required to pay to use the API?
-	- No
-- Have you considered using Apple Frameworks? (MapKit, Healthkit, ARKit?)
-	- No
-  
-## For Data Scientists
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eject`
 
-- Describe the Established data source with at least rough data able to be provided on day 1. 
-- You can gather information about the data set you’ll be working with from the project description. Be sure to collaborate with your PM, and your Backend Architect to chat about the resources you have.
-- Write a description for what the DS problem is (what uncertainty/prediction are we trying to do here? Sentiment analysis? Why is this a useful solution to a problem?)
-- A target (e.g. JSON format or such) for output that DS students can deliver to web/other students for them to ingest and use in the app
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-## Target Audience
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- Who is your target audience? Be specific.
-  - College students
-  - Low income household members
-  - Tech enthusiasts
-  
-- What feedback have you gotten from potential users?
-	- None yet
-  
-- Have you validated the problem and your solution with your target audience? How?
-	- No
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-## Research
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-Research thoroughly before writing a single line of code. Solidify the features of your app conceptually before implementation. Spend the weekend researching so you can hit the ground running on Monday.
-Prototype Key Feature(s)
+## Learn More
 
-This is the “bread and butter” of the app, this is what makes your app yours. Calculate how long it takes to implement these features and triple the time estimated. That way you’ll have plenty of time to finish. It is preferred to drop features and spend more time working on your MVP features if needed.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- Users can log in and create a profile.
-	- 1-2 days.
-- They can then set up items they have for rent such as cameras, TVs, Party equipment like speakers/fog machines etc.
-	- 1-2 days
-- Users will be able to Create, Read, Update and Delete rental data.
-	- 1-2 days
-- A 2nd user can log in and see items that users have for rent and ask to rent an item.
-	- 1-2 days
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
