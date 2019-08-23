@@ -8,7 +8,7 @@ function App() {
       <Route 
         exact
         path="/login"
-        render={props => <Login {...props} /> }
+        component={Login}
       />
     </div>
   );
