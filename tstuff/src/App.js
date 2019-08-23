@@ -1,11 +1,21 @@
 import React from 'react';
-import './App.css';
-import SignUp from "./components/SignUp";
+import { Route } from 'react-router-dom';
+import Login from './components/Login.js';
+import SignUp from './components/SignUp.js';
 
 function App() {
   return (
     <div className="App">
-      <SignUp />
+      <Route 
+        exact
+        path="/login"
+        render={props => <Login {...props} /> }
+      />
+      <Route
+        exact
+        path="/signup"
+        render={props => <SignUp {...props} /> }
+      />
     </div>
   );
 }

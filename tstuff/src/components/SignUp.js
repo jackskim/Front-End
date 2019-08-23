@@ -76,7 +76,15 @@ const formikHOC = withFormik({
                 console.log("handleSubmit: then: res: ", res);
                 setStatus(res.data);
                 resetForm();
+        const { email, password } = values;
+        axios
+            .post("https://umts-backend.herokuapp.com/api/auth/login", {email, password})
+            .then(res => {
+            localStorage.setItem('token', res.data.token);
+            props.history.push('/dashboard');
             })
+
+        })
             .catch(err => console.error("handleSubmit: catch: err: ", err));
     }
 });
