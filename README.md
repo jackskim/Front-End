@@ -15,7 +15,7 @@
 - Install [yarn](https://yarnpkg.com/en/) or [npm](https://www.npmjs.com/) to handle all your dependencies
 - Clone the project down to your local machine and navigate to your local clone where your package.json file is located
 - Type *yarn* or *npm install* to begin bringing down all necessary packages to replicate the frontend locally
-- Upon successful completion of dependency introduction, you can type *yarn start* or *npm start* to spin up a local instance of the TriviaBase front end
+- Upon successful completion of dependency introduction, you can type *yarn start* or *npm start* to spin up a local instance of the TSTUFF front end
 
 ## Product Canvas
 [TSTUFF Product Canvas](https://docs.google.com/document/d/1rQV-umqBiBXv-vL6ze1_EqSxrbDX0bPFn-SYqJbcoko/edit#)
