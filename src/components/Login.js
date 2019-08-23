@@ -1,76 +1,74 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { withFormik, Form, Field } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Container, Header, Button } from 'semantic-ui-react';
 
-function Login ({ errors, touched, values, isSubmitting, status }) {
+const LoginSchema = Yup.object().shape({
+  // telling Formik what shape the input data is supposed to be
+  email: Yup.string()
+    .email('Email is not valid')
+    .required('Please enter your email address'),
+  password: Yup.string()
+    .required('Please enter a password')
+});
 
-  const [ user, setUser] = useState([]);
+function Login (props, { errors, touched, values, isSubmitting, status }) {
+
+  const [ userInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
     if(status) {
-      setUser([...user, status]);
+      setUserInfo([...status]);
     }
   }, [status])
 
   return (
     <Container>
       <Header as="h1">Login</Header>
-        <Form>
-          <Field
-            component="input"
-            type="email"
-            name="email"
-            placeholder="Email"
-          />
-              { touched.email && errors.email && <p className="form__error">{errors.name}</p> }
-          <Field
-            component="input"
-            type="password"
-            name="password"
-            placeholder="Password"
-          />
-          { touched.password && errors.password && <p className="form__error">{errors.password}</p> }
-          <Button disabled={isSubmitting}>Login</Button> 
-        </Form>
+        <Formik
+          initialValues={{ email: '', password: ''}}
+          validationSchema={LoginSchema}
+          onSubmit={( values, { resetForm, setErrors, setSubmitting, setStatus }) => {
+            // Where we write our form submission code (HTTP requests, etc.)
+            axios.post("https://umts-backend.herokuapp.com/api/auth/login", values )
+              .then( res => {
+                console.log(res);
+                setSubmitting(false);
+                setStatus(res.data);
+                resetForm();
+                localStorage.setItem('token', res.data.token);
+                props.history.push('/dashboard');
+              })
+              .catch( err => {
+                console.log(err);
+                setSubmitting(false);
+              })
+          }}
+        >
+        {({ isSubmitting, errors, touched }) => (
+          <Form>
+            <Field
+              component="input"
+              type="email"
+              name="email"
+              placeholder="Email"
+            />
+            { touched.email && errors.email && <p className="form__error">{errors.email}</p> }
+            <Field
+              component="input"
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+            { touched.password && errors.password && <p className="form__error">{errors.password}</p> }
+            <Button type="submit" disabled={isSubmitting}>Login</Button> 
+          </Form>
+        )}
+      </Formik>
     </Container>
   );
 }
 
-const propsToValuesMap = {
-  mapPropsToValues({ email, password }) {
-    return {
-      email: email || "",
-      password: password || "",
-    }
-  },
-  validationSchema: Yup.object().shape({
-    // telling Formik what shape the input data is supposed to be
-    email: Yup.string()
-      .email('Email is not valid')
-      .required('Please enter your email address'),
-    password: Yup.string()
-      .min(6, 'Password must be 6 characters or longer')
-      .required('Please enter a password')
-  }),
-  handleSubmit( values, props, { resetForm, setErrors, setSubmitting, setStatus }) {
-    // Where we write our form submission code (HTTP requests, etc.)
-    axios.post("https://umts-backend.herokuapp.com/api", values )
-      .then( res => {
-        console.log(res);
-        setStatus(res.data);
-        resetForm();
-        setSubmitting(false);
-        localStorage.setItem('token', res.data.token);
-        props.history.push('/dashboard');
-      })
-      .catch( err => {
-        console.log(err);
-        setSubmitting(false);
-      })
-  }
-};
-
-export default withFormik(propsToValuesMap)(Login);
+export default Login;
 
