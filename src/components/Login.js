@@ -13,8 +13,8 @@ const LoginSchema = Yup.object().shape({
     .required('Please enter a password')
 });
 
-function Login (props, { errors, touched, values, isSubmitting }) {
-  
+function Login (props) {
+
   return (
     <Container className="container" >
       <Header as="h1">Login</Header>
