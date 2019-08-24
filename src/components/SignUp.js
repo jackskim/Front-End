@@ -73,7 +73,7 @@ function SignUp (props) {
                             placeholder='Password'
                         />
                          {touched.password && errors.password && (<p className='form_error'>{errors.password}</p>)}
-                        <Button className="button" type="submit" disabled={isSubmitting}>Login</Button>
+                        <Button className="button" type="submit" disabled={isSubmitting}>Sign Up</Button>
                     </Form>
                 )}        
             </Formik>         
