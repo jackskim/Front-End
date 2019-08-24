@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.container {
+  padding-top: 10%;
+}
+
+.container,
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__error {
+  font-size: 12px;
+  color: red;
+  margin-bottom: 5px;
+}
+
+.field {
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.field-password {
+  margin-top: 10px;
+}
+
+.button {
+  margin-top: 10px;
+  padding: 8px 30px;
+}
+
