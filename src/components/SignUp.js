@@ -53,7 +53,7 @@ function SignUp (props) {
                         />
                          {touched.firstName && errors.firstName && (<p className='form_error'>{errors.firstName}</p>)}
                         <Field
-                            className='form'
+                            className='field'
                             type='text'
                             name='lastName'
                             placeholder='Last Name'
