@@ -27,7 +27,7 @@ function Login (props) {
               .then( res => {
                 resetForm();
                 localStorage.setItem('token', res.data.token);
-                props.history.push('/dashboard');
+                props.history.push('/');
               })
               .catch( err => {
                 console.log(err);
