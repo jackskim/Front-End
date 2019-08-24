@@ -5,7 +5,6 @@ import Login from './components/Login.js';
 import SignUp from './components/SignUp.js';
 import Home from './components/Home.js';
 
-
 function App() {
   return (
     <div className="App">

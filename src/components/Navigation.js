@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
 
 function Navigation() {
+<<<<<<< HEAD
   const token = localStorage.getItem('token');
   console.log(token);
 
@@ -38,6 +39,16 @@ function Navigation() {
           </Menu.Item> 
         }
       </Menu>
+=======
+  return (
+    <div>
+      <Menu>
+        <Menu.Item key='home'>
+          <NavLink to="/">Home</NavLink>
+        </Menu.Item>
+      </Menu>
+    </div>
+>>>>>>> 69536058b7aa5d93697dbac479263a8c56fa2879
   );
 }
 
