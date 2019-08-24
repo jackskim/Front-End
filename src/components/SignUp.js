@@ -51,28 +51,28 @@ function SignUp (props) {
                             name='firstName'
                             placeholder='First Name'
                         />
-                         {touched.firstName && errors.firstName && (<p className='form_error'>{errors.firstName}</p>)}
+                         {touched.firstName && errors.firstName && (<p className='form__error'>{errors.firstName}</p>)}
                         <Field
-                            className='form'
+                            className='field'
                             type='text'
                             name='lastName'
                             placeholder='Last Name'
                         />
-                         {touched.lastName && errors.lastName && (<p className='form_error'>{errors.lastName}</p>)}
+                         {touched.lastName && errors.lastName && (<p className='form__error'>{errors.lastName}</p>)}
                         <Field
                             className='field'
                             type='text'
                             name='email'
                             placeholder='Email'
                         />
-                        {touched.email && errors.email && (<p className='form_error'>{errors.email}</p>)}
+                        {touched.email && errors.email && (<p className='form__error'>{errors.email}</p>)}
                         <Field 
                             className='field'
                             type='password'
                             name='password'
                             placeholder='Password'
                         />
-                         {touched.password && errors.password && (<p className='form_error'>{errors.password}</p>)}
+                         {touched.password && errors.password && (<p className='form__error'>{errors.password}</p>)}
                         <Button className="button" type="submit" disabled={isSubmitting}>Sign Up</Button>
                     </Form>
                 )}        
