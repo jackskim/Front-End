@@ -1,4 +1,4 @@
-#  TSTUFF - Front-End
+# TSTUFF - Front-End
 
 ## Live Website  – (In progress)  
 ### An app for tech enthusiasts who want to rent or rent out tech equipment.
