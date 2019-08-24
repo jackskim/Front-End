@@ -35,7 +35,7 @@ function SignUp (props) {
                             .post("https://umts-backend.herokuapp.com/api/auth/login", {email, password})
                             .then(res => {
                             localStorage.setItem('token', res.data.token);
-                            props.history.push('/dashboard');
+                            props.history.push('/Dashboard');
                         })
                             .catch( err => {
                                 console.log(err);
@@ -61,13 +61,13 @@ function SignUp (props) {
                          {touched.lastName && errors.lastName && (<p className='form_error'>{errors.lastName}</p>)}
                         <Field
                             className='field'
-                            type='text'
+                            type='email'
                             name='email'
                             placeholder='Email'
                         />
                         {touched.email && errors.email && (<p className='form_error'>{errors.email}</p>)}
                         <Feld 
-                            className='field'
+                            className='field field-password'
                             type='password'
                             name='password'
                             placeholder='Password'
