@@ -9,12 +9,12 @@ function App() {
       <Route 
         exact
         path="/login"
-        render={props => <Login {...props} /> }
+        component={Login}
       />
       <Route
         exact
         path="/signup"
-        render={props => <SignUp {...props} /> }
+        component={SignUp}
       />
     </div>
   );
