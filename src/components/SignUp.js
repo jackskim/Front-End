@@ -21,7 +21,7 @@ function SignUp (props) {
                 <Formik
                     initialValues = {{ firstName: '', lastName: '', email: '', password: '' }}
                     validationSchema = {SignUpSchema}
-                    onSubmit = {( values, { resetForm, SetStatus }) => {
+                    onSubmit = {( values, { resetForm, setStatus }) => {
                         axios
                             .post("https://umts-backend.herokuapp.com/api/auth/register", values)
                             .then(res => {
@@ -66,13 +66,14 @@ function SignUp (props) {
                             placeholder='Email'
                         />
                         {touched.email && errors.email && (<p className='form_error'>{errors.email}</p>)}
-                        <Feld 
+                        <Field 
                             className='field'
                             type='password'
                             name='password'
                             placeholder='Password'
                         />
                          {touched.password && errors.password && (<p className='form_error'>{errors.password}</p>)}
+                        <Button className="button" type="submit" disabled={isSubmitting}>Login</Button>
                     </Form>
                 )}        
             </Formik>         
