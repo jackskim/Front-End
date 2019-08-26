@@ -4,7 +4,7 @@ import Navigation from './Navigation.js';
 
 function Home(props) {
   return (
-    <Container>
+    <Container fluid>
       <Navigation />
     </Container>
   );
