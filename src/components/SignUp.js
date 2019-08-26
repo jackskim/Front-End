@@ -75,7 +75,7 @@ function SignUp (props) {
 
                                     {touched.email && errors.email && (<p className='form__error'>{errors.email}</p>)}
                                     <Field 
-                                        className='field field-password'
+                                        className='field'
                                         type='password'
                                         name='password'
                                         placeholder='Password'

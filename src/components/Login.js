@@ -49,7 +49,7 @@ function Login (props) {
             />
             { touched.email && errors.email && <p className="form__error">{errors.email}</p> }
             <Field
-              className="field field-password"
+              className="field"
               component="input"
               type="password"
               name="password"
