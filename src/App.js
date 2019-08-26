@@ -4,6 +4,7 @@ import Login from './components/Login.js';
 import SignUp from './components/SignUp.js';
 import Home from './components/Home.js';
 import PrivateRoute from './components/PrivateRoute.js';
+import Logout from './components/Logout.js';
 
 function App() {
   return (
@@ -22,6 +23,11 @@ function App() {
         exact
         path="/signup"
         component={SignUp}
+      />
+      <Route
+        exact
+        path="/logout"
+        component={Logout}
       />
     </div>
   );

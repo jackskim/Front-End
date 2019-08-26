@@ -11,14 +11,14 @@ function Navigation(props) {
       <Menu.Item key='home'>
         <NavLink to="/">Home</NavLink>
       </Menu.Item>
-      <Menu.Item key='list--item'>
-        <NavLink to="/">List Item</NavLink>
-      </Menu.Item> 
       <Menu.Item key='dashboard'>
         <NavLink to="/dashboard">Dashboard</NavLink>
       </Menu.Item>
+      <Menu.Item key='list-item'>
+        <NavLink to="/">List Item</NavLink>
+      </Menu.Item> 
       <Menu.Item key='logout'>
-        <NavLink to="/">Log Out</NavLink>
+        <NavLink to="/logout">Log Out</NavLink>
       </Menu.Item> 
     </Menu>
   );
