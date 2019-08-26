@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -27,7 +28,7 @@ function Login (props) {
               .then( res => {
                 resetForm();
                 localStorage.setItem('token', res.data.token);
-                props.history.push('/dashboard');
+                props.history.push('/');
               })
               .catch( err => {
                 console.log(err);
@@ -57,6 +58,7 @@ function Login (props) {
           </Form>
         )}
       </Formik>
+      <Link to="/signup">Don't have an account? Sign up</Link>
     </Container>
   );
 }

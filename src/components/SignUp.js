@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Formik, Form, Field, } from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
@@ -78,6 +79,7 @@ function SignUp (props) {
                     </Form>
                 )}        
             </Formik>         
+            <Link to="/login">Already have an account? Log in</Link>
         </Container>
     );
                 }
