@@ -4,7 +4,6 @@ import axios from 'axios';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Container, Header, Button } from 'semantic-ui-react';
-
 const LoginSchema = Yup.object().shape({
   // telling Formik what shape the input data is supposed to be
   email: Yup.string()

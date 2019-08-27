@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 import Login from './components/Login.js';
 import SignUp from './components/SignUp.js';
@@ -7,22 +7,24 @@ import PrivateRoute from './components/PrivateRoute.js';
 import Logout from './components/Logout.js';
 
 function App() {
+  const [user, setUser] = useState({});
+
   return (
     <div className="App">
-      <PrivateRoute 
+      <PrivateRoute
         exact
         path="/"
         component={Home}
       />
-      <Route 
+      <Route
         exact
         path="/login"
-        component={Login}
+        render={props => <Login {...props} setUser={setUser} />}
       />
       <Route
         exact
         path="/signup"
-        component={SignUp}
+        render={props => <SignUp {...props} setUser={setUser} />}
       />
       <Route
         exact
