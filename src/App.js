@@ -35,7 +35,7 @@ function App() {
       <Route
         exact
         path="/createprofile"
-        render={props => <CreateProfile {...props} setUser={setUser} />}
+        render={props => <CreateProfile {...props} user={user} />}
       />
     </div>
   );
