@@ -29,7 +29,7 @@ function SignUp(props) {
               const response = await axios.post('https://umts-backend.herokuapp.com/api/auth/login', { email, password });
               localStorage.setItem('token', response.data.token);
               props.setUser(response.data.user);
-              props.history.push('/');
+              props.history.push('/createprofile');
             } catch (error) {
               console.log(error);
               setStatus({ msg: error });

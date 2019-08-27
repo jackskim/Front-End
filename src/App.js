@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Login from './components/Login.js';
 import SignUp from './components/SignUp.js';
 import Home from './components/Home.js';
+import CreateProfile from './components/CreateProfile';
 import PrivateRoute from './components/PrivateRoute.js';
 import Logout from './components/Logout.js';
 
@@ -30,6 +31,11 @@ function App() {
         exact
         path="/logout"
         component={Logout}
+      />
+      <Route
+        exact
+        path="/createprofile"
+        render={props => <CreateProfile {...props} setUser={setUser} />}
       />
     </div>
   );
