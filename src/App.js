@@ -6,6 +6,7 @@ import Home from './components/Home.js';
 import CreateProfile from './components/CreateProfile';
 import PrivateRoute from './components/PrivateRoute.js';
 import Logout from './components/Logout.js';
+import Dashboard from './components/Dashboard.js';
 
 function App() {
   const [user, setUser] = useState({});
@@ -36,6 +37,11 @@ function App() {
         exact
         path="/createprofile"
         render={props => <CreateProfile {...props} user={user} />}
+      />
+      <Route
+        exact
+        path="/dashboard"
+        render={props => <Dashboard {...props} user={user} />}
       />
     </div>
   );
