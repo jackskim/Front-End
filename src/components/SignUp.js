@@ -63,7 +63,6 @@ function SignUp(props) {
                   name="email"
                   placeholder="Email"
                 />
-
                 {touched.email && errors.email && (
                   <p className="form__error">{errors.email}</p>
                 )}
