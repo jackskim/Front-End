@@ -1,8 +1,8 @@
 import React from 'react';
 import { Formik, Form, Field, } from 'formik';
-import axios from 'axios';
 import * as Yup from 'yup';
 import { Container, Header, Button } from 'semantic-ui-react';
+import axiosWithAuth from '../axiosWithAuth.js'
 
 const CreateProfileSchema =  Yup.object().shape({
     phone: Yup.number().required("Please enter your phone number"),
@@ -22,6 +22,7 @@ function CreateProfile (props) {
                         firstName: `${props.user.firstName}`,
                         lastName: `${props.user.lastName}`,
                         email: `${props.user.email}`,
+                        password: '',
                         phone: '',
                         street: '',
                         city: '',
@@ -30,13 +31,12 @@ function CreateProfile (props) {
                     }}
                     validationSchema = {CreateProfileSchema}
                     onSubmit = {( values, { resetForm, setStatus }) => {
-                        axios
+                        axiosWithAuth()
                             .put("https://umts-backend.herokuapp.com/api/auth/profile", values)
                             .then(res => {
                                 setStatus(res.data);
                                 resetForm();
                                 props.history.push('/');
-
                             })
                             .catch( err => {
                                 console.log(err);
@@ -69,9 +69,16 @@ function CreateProfile (props) {
                          {touched.email && errors.email && (<p className='form__error'>{errors.email}</p>)} 
                         <Field
                             className='field'
-                            type='number'
+                            type='password'
+                            name='password'
+                            placeholder='Password (required)'
+                        />
+                         {touched.password && errors.password && (<p className='form__error'>{errors.password}</p>)}
+                        <Field
+                            className='field'
+                            type='text'
                             name='phone'
-                            placeholder='Phone Number (Required)'
+                            placeholder='Phone (required)'
                         />
                          {touched.phone && errors.phone && (<p className='form__error'>{errors.phone}</p>)}
                         <Field
@@ -108,6 +115,6 @@ function CreateProfile (props) {
             </Formik>         
         </Container>
     );
-                }
+}
 
                 export default CreateProfile;
