@@ -25,6 +25,7 @@ function CreateProfile (props) {
                         phone: '',
                         street: '',
                         city: '',
+                        state: '',
                         avatarUrl: '' 
                     }}
                     validationSchema = {CreateProfileSchema}
