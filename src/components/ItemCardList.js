@@ -30,9 +30,4 @@ export default function ItemCardList() {
         </Container>
     );
 
-
-
-
-
-
 }
