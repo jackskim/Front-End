@@ -60,15 +60,7 @@ function CreateProfile (props) {
                             placeholder='Email'
                             value={props.user.email}
                         />
-                         {touched.email && errors.email && (<p className='form__error'>{errors.email}</p>)}
-                        <Field
-                            className='field'
-                            type='password'
-                            name='password'
-                            placeholder='Password'
-                            value={props.user.password}
-                        />
-                         {touched.password && errors.password && (<p className='form__error'>{errors.password}</p>)}   
+                         {touched.email && errors.email && (<p className='form__error'>{errors.email}</p>)} 
                         <Field
                             className='field'
                             type='number'
@@ -93,10 +85,17 @@ function CreateProfile (props) {
                         <Field 
                             className='field'
                             type='text'
+                            name='state'
+                            placeholder='State'
+                        />
+                         {touched.state && errors.state && (<p className='form__error'>{errors.state}</p>)}
+                        <Field 
+                            className='field'
+                            type='text'
                             name='avatarUrl'
                             placeholder='Avatar'
                         />
-                         {touched.avatarUrl && errors.avatarUrl && (<p className='form__error'>{errors.avatarUrl}</p>)}
+                         {touched.avatarUrl && errors.avatarUrl && (<p className='form__error'>{errors.avatarUrl}</p>)} 
                         <Button className="button" type="submit" disabled={isSubmitting}>Submit</Button>
                     </Form>
                 )}        
