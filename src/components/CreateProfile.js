@@ -18,7 +18,15 @@ function CreateProfile (props) {
         < Container className='container' >
             <Header as="h1">Create Profile</Header>
                 <Formik
-                    initialValues = {{ phone: '', street: '', city: '', avatarUrl: '' }}
+                    initialValues = {{ 
+                        firstName: `${props.user.firstName}`,
+                        lastName: `${props.user.lastName}`,
+                        email: `${props.user.email}`,
+                        phone: '',
+                        street: '',
+                        city: '',
+                        avatarUrl: '' 
+                    }}
                     validationSchema = {CreateProfileSchema}
                     onSubmit = {( values, { resetForm, setStatus }) => {
                         axios
@@ -42,7 +50,6 @@ function CreateProfile (props) {
                             type='text'
                             name='firstName'
                             placeholder='First Name'
-                            value={props.user.firstName}
                         />
                          {touched.firstName && errors.firstName && (<p className='form__error'>{errors.firstName}</p>)}
                         <Field
@@ -50,7 +57,6 @@ function CreateProfile (props) {
                             type='text'
                             name='lastName'
                             placeholder='Last Name'
-                            value={props.user.lastName}
                         />
                          {touched.lastName && errors.lastName && (<p className='form__error'>{errors.lastName}</p>)}
                         <Field
@@ -58,14 +64,13 @@ function CreateProfile (props) {
                             type='text'
                             name='email'
                             placeholder='Email'
-                            value={props.user.email}
                         />
                          {touched.email && errors.email && (<p className='form__error'>{errors.email}</p>)} 
                         <Field
                             className='field'
                             type='number'
                             name='phone'
-                            placeholder='Phone Number'
+                            placeholder='Phone Number (Required)'
                         />
                          {touched.phone && errors.phone && (<p className='form__error'>{errors.phone}</p>)}
                         <Field
@@ -79,7 +84,7 @@ function CreateProfile (props) {
                             className='field'
                             type='text'
                             name='city'
-                            placeholder='City Name'
+                            placeholder='City Name (Required)'
                         />
                         {touched.city && errors.city && (<p className='form__error'>{errors.city}</p>)}
                         <Field 
