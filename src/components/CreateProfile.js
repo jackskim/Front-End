@@ -7,7 +7,7 @@ import { Container, Header, Button } from 'semantic-ui-react';
 const CreateProfileSchema =  Yup.object().shape({
     phone: Yup.number().required("Please enter your phone number"),
     street: Yup.string(),
-    city: Yup.string().string().required("Please enter your city"),
+    city: Yup.string().required("Please enter your city"),
     avatarUrl: Yup.string()
 });
 
