@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { Container, Header, Button } from 'semantic-ui-react';
+import { Header, Button, Grid, Message, Segment } from 'semantic-ui-react';
 
 const LoginSchema = Yup.object().shape({
   // telling Formik what shape the input data is supposed to be
@@ -16,8 +17,9 @@ const LoginSchema = Yup.object().shape({
 function Login (props) {
 
   return (
-    <Container className="container" >
-      <Header as="h1">Login</Header>
+    <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as="h2" style={{color: "#2B4162"}} textAlign="center">Login</Header>
         <Formik
           initialValues={{ email: '', password: ''}}
           validationSchema={LoginSchema}
@@ -27,7 +29,7 @@ function Login (props) {
               .then( res => {
                 resetForm();
                 localStorage.setItem('token', res.data.token);
-                props.history.push('/dashboard');
+                props.history.push('/');
               })
               .catch( err => {
                 console.log(err);
@@ -36,7 +38,8 @@ function Login (props) {
           }}
         >
         {({ isSubmitting, errors, touched }) => (
-          <Form className="form">
+          <Form>
+            <Segment stacked>
             <Field
               className="field"
               component="input"
@@ -44,20 +47,36 @@ function Login (props) {
               name="email"
               placeholder="Email"
             />
-            { touched.email && errors.email && <span className="form__error">{errors.email}</span> }
+            { touched.email && errors.email && <p className="form__error">{errors.email}</p> }
             <Field
-              className="field field-password"
+              className="field"
               component="input"
               type="password"
               name="password"
               placeholder="Password"
             />
-            { touched.password && errors.password && <span className="form__error">{errors.password}</span> }
-            <Button className="button" type="submit" disabled={isSubmitting}>Login</Button> 
+            { touched.password && errors.password && <p className="form__error">{errors.password}</p> }
+            <Button 
+              style={{
+                color: "white",
+                backgroundColor: "#2B4162",
+                marginTop: "10px"
+              }} 
+              fluid 
+              size="large" 
+              type="submit" 
+              disabled={isSubmitting}>
+              Login
+            </Button> 
+              </Segment>
           </Form>
         )}
       </Formik>
-    </Container>
+        <Message>
+          New to us? <Link to="/signup">Sign up</Link>
+        </Message>
+      </Grid.Column>
+    </Grid>
   );
 }
 
