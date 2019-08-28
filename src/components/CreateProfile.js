@@ -22,11 +22,11 @@ function CreateProfile (props) {
                     validationSchema = {CreateProfileSchema}
                     onSubmit = {( values, { resetForm, setStatus }) => {
                         axios
-                            .post("https://umts-backend.herokuapp.com/api/auth/profile", values)
+                            .put("https://umts-backend.herokuapp.com/api/auth/profile", values)
                             .then(res => {
                                 setStatus(res.data);
                                 resetForm();
-                                props.history.push('/Home');
+                                props.history.push('/');
 
                             })
                             .catch( err => {
@@ -37,6 +37,38 @@ function CreateProfile (props) {
                 >    
                 {({ isSubmitting, errors, touched }) => (
                     <Form className='form'>
+                        <Field
+                            className='field'
+                            type='text'
+                            name='firstName'
+                            placeholder='First Name'
+                            value={props.user.firstName}
+                        />
+                         {touched.firstName && errors.firstName && (<p className='form__error'>{errors.firstName}</p>)}
+                        <Field
+                            className='field'
+                            type='text'
+                            name='lastName'
+                            placeholder='Last Name'
+                            value={props.user.lastName}
+                        />
+                         {touched.lastName && errors.lastName && (<p className='form__error'>{errors.lastName}</p>)}
+                        <Field
+                            className='field'
+                            type='text'
+                            name='email'
+                            placeholder='Email'
+                            value={props.user.email}
+                        />
+                         {touched.email && errors.email && (<p className='form__error'>{errors.email}</p>)}
+                        <Field
+                            className='field'
+                            type='password'
+                            name='password'
+                            placeholder='Password'
+                            value={props.user.password}
+                        />
+                         {touched.password && errors.password && (<p className='form__error'>{errors.password}</p>)}   
                         <Field
                             className='field'
                             type='number'
