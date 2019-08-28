@@ -29,6 +29,7 @@ function Login (props) {
               .then( res => {
                 resetForm();
                 localStorage.setItem('token', res.data.token);
+                props.setUser(res.data.user);
                 props.history.push('/');
               })
               .catch( err => {
