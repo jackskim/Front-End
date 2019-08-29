@@ -31,7 +31,7 @@ function App() {
       <Route
         exact
         path="/logout"
-        render={props => <Home {...props} setUser={setUser} />}
+        render={props => <Logout {...props} setUser={setUser} />}
       />
       <Route
         exact
