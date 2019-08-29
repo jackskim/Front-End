@@ -6,8 +6,14 @@ import * as Yup from 'yup';
 import { Header, Button, Grid, Message, Segment } from 'semantic-ui-react';
 
 const RentOutItemSchema = Yup.object().shape({
-  
-
+  description: Yup.string(),
+  price: Yup.number()
+            .required('Please enter an item price'),
+  address: Yup.string()
+            .required('Please enter an address'),
+  imageUrl: Yup.string(),
+  name: Yup.string()
+            .required('Please enter an item name')
 });
 
 function RentOutItem (props) {
@@ -92,9 +98,6 @@ function RentOutItem (props) {
           </Form>
         )}
       </Formik>
-        <Message>
-          New to us? <Link to="/signup">Sign up</Link>
-        </Message>
       </Grid.Column>
     </Grid>
   );
