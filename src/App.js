@@ -16,7 +16,7 @@ function App() {
       <PrivateRoute
         exact
         path="/"
-        component={Home}
+        render={props => <Home {...props} user={user} />}
       />
       <Route
         exact
@@ -31,7 +31,7 @@ function App() {
       <Route
         exact
         path="/logout"
-        component={Logout}
+        render={props => <Home {...props} setUser={setUser} />}
       />
       <Route
         exact
@@ -40,8 +40,8 @@ function App() {
       />
       <Route
         exact
-        path="/dashboard"
-        render={props => <Dashboard {...props} user={user} />}
+        path="/dashboard:id"
+        render={props => <Dashboard {...props} user={user} setUser={setUser} />}
       />
     </div>
   );
