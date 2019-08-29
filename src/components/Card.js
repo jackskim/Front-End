@@ -20,7 +20,7 @@ const Card = props => {
     if (!item) return <p>Loading...</p>;
   
     return (
-        <div className='card-container' onClick={props.history.push(`/rentitems/${id}`)}>
+        <div className='card-container' >
         <img src={props.imageUrl} />
         <h1>{props.name}</h1>
         <h3>{props.address}</h3>
