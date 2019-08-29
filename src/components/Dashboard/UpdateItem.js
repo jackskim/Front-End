@@ -30,7 +30,7 @@ function UpdateItem(props) {
     })(); 
   },[props.match.params.itemid]);
 
-  console.log(item);
+  if(!item.name) return <p>Loading...</p>;
 
   return (
         <Grid textAlign="center" style={{ height: '50vh', margin: '20px' }} verticalAlign="top" >
@@ -93,7 +93,7 @@ function UpdateItem(props) {
                             <Field
                                 className='field'
                                 type='text'
-                                name='imageurl'
+                                name='imageUrl'
                                 placeholder='Item Image URL'
                             />
                              {touched.phone && errors.phone && (<p className='form__error'>{errors.phone}</p>)}
