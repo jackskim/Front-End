@@ -1,5 +1,5 @@
 import React /* { useState, useEffect } */ from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Container, Header, Image, Menu, Tab } from 'semantic-ui-react';
 
 import Navigation from '.././Navigation.js';
@@ -25,6 +25,7 @@ function Dashboard(props) {
         );
       }
     },
+    /*
     { menuItem: ( 
       <Menu.Item key='update-item'>
         Update Item 
@@ -33,11 +34,12 @@ function Dashboard(props) {
       render: () => {
         return (
           <Tab.Pane>
-            {/*<DashboardRouter {...props} item={props.item} /> */}
+            {<DashboardRouter {...props} item={props.item} /> }
           </Tab.Pane>
         );
       }
     },
+  */
     { menuItem: ( 
       <Menu.Item key='update-profile'>
         <Link to="/dashboard/updateprofile">
@@ -66,6 +68,7 @@ function Dashboard(props) {
           </Header>
           <Tab panes={panes} /> 
         </Container>
+        <Redirect to="/dashboard/itemlist"/>
     </Container>
     
   );
