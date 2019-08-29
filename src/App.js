@@ -6,9 +6,12 @@ import Home from './components/Home.js';
 import CreateProfile from './components/CreateProfile';
 import PrivateRoute from './components/PrivateRoute.js';
 import Logout from './components/Logout.js';
+import Card from './components/Card';
+import ItemCardInfo from './components/ItemCardInfo';
 
 function App() {
   const [user, setUser] = useState({});
+  const [item, setItem] = useState({});
 
   return (
     <div className="App">
