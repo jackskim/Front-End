@@ -27,7 +27,13 @@ function Dashboard(props) {
     },
     { menuItem: ( 
       <Menu.Item key='update-profile'>
-        <Link to="/dashboard/updateprofile">
+        <Link to= {{
+          pathname: "/dashboard/updateprofile",
+          state: {
+            user: props.user
+          }
+        }}
+        >
           Update Profile 
         </Link>
       </Menu.Item>

@@ -52,7 +52,7 @@ function UpdateItem(props) {
             onSubmit = {( values, { resetForm, setStatus }) => {
               if(values.isDeleteButton) {
                 axiosWithAuth()
-                  .delete(`https://umts-backend.herokuapp.com/api/rentItems/${props.item.id}`, values)
+                  .delete(`https://umts-backend.herokuapp.com/api/rentItems/${item.id}`, values)
                   .then( res => {
                     setStatus(res.data);
                     resetForm();
@@ -64,7 +64,7 @@ function UpdateItem(props) {
                   })
                 } else {
                   axiosWithAuth()
-                    .put(`https://umts-backend.herokuapp.com/api/rentItems/${props.item.id}`, values)
+                    .put(`https://umts-backend.herokuapp.com/api/rentItems/${item.id}`, values)
                     .then(res => {
                       setStatus(res.data);
                       resetForm();
@@ -151,9 +151,9 @@ function UpdateItem(props) {
                     fluid
                     size="large"
                     disabled={isSubmitting}
+                    type="submit"
                     onClick={(e) => {
                       setFieldValue('isDeleteButton', true);
-                      handleSubmit(e);
                     }}
                   >
                     Delete Item

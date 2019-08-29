@@ -20,8 +20,6 @@ function ItemList(props) {
     })(); 
   },[]);
 
-  console.log(userItems);
-
   return (
     <List style={{textAlign:"left"}}>
       {userItems.map( item => {
