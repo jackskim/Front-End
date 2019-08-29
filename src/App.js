@@ -30,7 +30,6 @@ function App() {
     })();
   },[user.id]);
 
-
   return (
     <div className="App">
       <PrivateRoute
