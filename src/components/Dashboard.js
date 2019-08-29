@@ -4,7 +4,6 @@ import Navigation from './Navigation.js';
 import defaultAvatar from '../assets/default-avatar.png';
 
 function Dashboard(props) {
-  console.log(props);
   const avatarSrc = props.user.avatarUrl ? props.user.avatarUrl : defaultAvatar;
 
   const panes = [
@@ -16,7 +15,7 @@ function Dashboard(props) {
     render: () => <Tab.Pane></Tab.Pane>
     },
     { menuItem: ( 
-      <Menu.Item key='my-item-list'>
+      <Menu.Item key='update-profile'>
         Update Profile 
       </Menu.Item>
     ),
