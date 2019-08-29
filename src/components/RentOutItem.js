@@ -15,43 +15,67 @@ function RentOutItem (props) {
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" style={{color: "#2B4162"}} textAlign="center">Login</Header>
+        <Header as="h2" style={{color: "#2B4162"}} textAlign="center">Rent Out Items</Header>
         <Formik
           initialValues={{ description: '', price: '', address: '', imageUrl: '', name: ''}}
           validationSchema={RentOutItemSchema}
           onSubmit={( values, { resetForm, setStatus }) => {
-            // Where we write our form submission code (HTTP requests, etc.)
-            axios.post('https://umts-backend.herokuapp.com/api/auth/login', values )
-              .then( res => {
-                resetForm();
-                localStorage.setItem('token', res.data.token);
-                props.history.push('/');
-              })
-              .catch( err => {
-                console.log(err);
-                setStatus(err);
-              })
-          }}
+            axios.post('https://umts-backend.herokuapp.com/api/rentItems', values )
+                .then( res => {
+                    resetForm();
+                    props.history.push('/');
+                })
+                .catch(err => {
+                    console.log(err);
+                    setStatus(err);
+                })
+            }}
+            
         >
         {({ isSubmitting, errors, touched }) => (
           <Form>
             <Segment stacked>
             <Field
               className="field"
-              component="input"
-              type="email"
-              name="email"
-              placeholder="Email"
+              component="textarea"
+              type="text"
+              name="description"
+              placeholder="Description"
             />
-            { touched.email && errors.email && <p className="form__error">{errors.email}</p> }
+            { touched.description && errors.description && <p className="form__error">{errors.description}</p> }
             <Field
               className="field"
               component="input"
-              type="password"
-              name="password"
-              placeholder="Password"
+              type="text"
+              name="price"
+              placeholder="Price"
             />
-            { touched.password && errors.password && <p className="form__error">{errors.password}</p> }
+            { touched.price && errors.price && <p className="form__error">{errors.price}</p> }
+            <Field
+              className="field"
+              component="input"
+              type="text"
+              name="address"
+              placeholder="Address"
+            />
+            { touched.address && errors.address && <p className="form__error">{errors.address}</p> }
+            <Field
+              className="field"
+              component="input"
+              type="text"
+              name="imageUrl"
+              placeholder="ImageUrl"
+            />
+            { touched.imageUrl && errors.imageUrl && <p className="form__error">{errors.imageUrl}</p> }
+            <Field
+              className="field"
+              component="input"
+              type="text"
+              name="name"
+              placeholder="Name"
+            />
+            { touched.name && errors.name && <p className="form__error">{errors.name}</p> }
+            
             <Button 
               style={{
                 color: "white",
@@ -62,7 +86,7 @@ function RentOutItem (props) {
               size="large" 
               type="submit" 
               disabled={isSubmitting}>
-              Login
+              Submit
             </Button> 
               </Segment>
           </Form>
@@ -76,4 +100,4 @@ function RentOutItem (props) {
   );
 }
 
-export default Login;
+export default RentOutItem;

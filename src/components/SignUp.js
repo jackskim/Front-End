@@ -22,7 +22,7 @@ function SignUp(props) {
         <Formik
           initialValues={{ firstName: '', lastName: '', email: '', password: '' }}
           validationSchema={SignUpSchema}
-          onSubmit={async (values, { resetForm, setStatus }) => {
+          onSubmit={async (values, { setStatus }) => {
             try {
               await axios.post('https://umts-backend.herokuapp.com/api/auth/register', values);
               const { email, password } = values;
