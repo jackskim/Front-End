@@ -1,5 +1,5 @@
 import React /* { useState, useEffect } */ from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Header, Image, Menu, Tab } from 'semantic-ui-react';
 
 import Navigation from '.././Navigation.js';
@@ -7,16 +7,14 @@ import DashboardRouter from './DashboardRouter.js';
 import defaultAvatar from '../../assets/default-avatar.png';
 
 function Dashboard(props) {
-  console.log('Dashboard.js, Dashboard: ', props);
-
   const avatarSrc = props.user.avatarUrl ? props.user.avatarUrl : defaultAvatar;
 
   const panes = [
     { menuItem: ( 
       <Menu.Item key='my-item-list'>
-        <NavLink to="/dashboard/itemlist">
+        <Link to="/dashboard/itemlist">
           My Item List
-        </NavLink>
+        </Link>
       </Menu.Item>
     ),
       render: () => {
@@ -32,14 +30,28 @@ function Dashboard(props) {
         Update Item 
       </Menu.Item>
     ),
-      render: () => <Tab.Pane></Tab.Pane>
+      render: () => {
+        return (
+          <Tab.Pane>
+            <DashboardRouter {...props} user={props.user} />
+          </Tab.Pane>
+        );
+      }
     },
     { menuItem: ( 
       <Menu.Item key='update-profile'>
-        Update Profile 
+        <Link to="/dashboard/updateprofile">
+          Update Profile 
+        </Link>
       </Menu.Item>
     ),
-      render: () => <Tab.Pane></Tab.Pane>
+      render: () => {
+        return (
+          <Tab.Pane>
+            <DashboardRouter {...props} user={props.user} />
+          </Tab.Pane>
+        );
+      }
     }
 
   ];
