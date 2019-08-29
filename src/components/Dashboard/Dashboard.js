@@ -25,21 +25,6 @@ function Dashboard(props) {
         );
       }
     },
-    /*
-    { menuItem: ( 
-      <Menu.Item key='update-item'>
-        Update Item 
-      </Menu.Item>
-    ),
-      render: () => {
-        return (
-          <Tab.Pane>
-            {<DashboardRouter {...props} item={props.item} /> }
-          </Tab.Pane>
-        );
-      }
-    },
-  */
     { menuItem: ( 
       <Menu.Item key='update-profile'>
         <Link to="/dashboard/updateprofile">
