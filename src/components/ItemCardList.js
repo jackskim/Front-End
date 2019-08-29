@@ -11,8 +11,7 @@ export default function ItemCardList() {
         axios
             .get("https://umts-backend.herokuapp.com/api/rentItems/")
             .then(res => {
-                setItemCards(res.data.results);
-                console.log(res.data.results);
+                setItemCards(res.data.rentItems);
             })
             .catch(err => {
                 console.log(err);
@@ -24,7 +23,7 @@ export default function ItemCardList() {
         <Container className='itemcard-list'>
             <div>
                 {itemCards.map(itemCard => {
-                    return <Card name={itemCard.name} address={itemCard.address} />
+                    return <Card name={itemCard.name} address={itemCard.address} price={itemCard.price} imageUrl={itemCard.imageUrl} />
                 })}
             </div>
         </Container>
