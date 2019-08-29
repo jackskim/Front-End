@@ -59,7 +59,6 @@ function App() {
         render={props => <CreateProfile {...props} user={user} />}
       />
       <PrivateRoute
-        exact
         path="/dashboard"
         component={props => <Dashboard {...props} user={user} setUser={setUser} />}
       />
