@@ -7,7 +7,7 @@ import CreateProfile from './components/CreateProfile';
 import PrivateRoute from './components/PrivateRoute.js';
 import Logout from './components/Logout.js';
 import Login from './components/Login.js';
-import Dashboard from './components/Dashboard.js';
+import Dashboard from './components/Dashboard/Dashboard.js';
 import jwtDecode from 'jwt-decode';
 import axiosWithAuth from './axiosWithAuth.js';  
 
