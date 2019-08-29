@@ -14,8 +14,8 @@ function DashboardRouter(props) {
       />
       <Route 
         exact
-        path="/dashboard/updateitem"
-        render={props => <UpdateItem {...props} user={props.user} />}
+        path="/dashboard/updateitem/:itemid"
+        render={props => <UpdateItem {...props} />}
       />
       <Route 
         exact

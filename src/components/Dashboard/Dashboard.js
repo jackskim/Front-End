@@ -33,7 +33,7 @@ function Dashboard(props) {
       render: () => {
         return (
           <Tab.Pane>
-            <DashboardRouter {...props} user={props.user} />
+            {/*<DashboardRouter {...props} item={props.item} /> */}
           </Tab.Pane>
         );
       }
