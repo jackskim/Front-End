@@ -4,8 +4,6 @@ import axios from 'axios';
 import { List } from 'semantic-ui-react';
 
 function ItemList(props) {
-  console.log(props);
-
   const [userItems, setUserItems] = useState([]);
 
   useEffect(() => {
@@ -19,7 +17,7 @@ function ItemList(props) {
         console.log(error);
       }
     })(); 
-  },[]);
+  },[props.user.id]);
 
   return (
     <List style={{textAlign:"left"}}>

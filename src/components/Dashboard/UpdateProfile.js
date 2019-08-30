@@ -14,9 +14,9 @@ const UpdateProfileSchema =  Yup.object().shape({
 
 function UpdateProfile (props) {
 
-  const user = props.location.state.user;
-  console.log(user);
-
+  console.log('UpdateProfile', props);
+  const user = props.user;
+  const setUser = props.setUser;
     return (
         <Grid textAlign="center" style={{ height: '80vh' }} verticalAlign="middle" >
             <Grid.Column style={{ maxWidth: 450 }}>
@@ -39,7 +39,7 @@ function UpdateProfile (props) {
                             .put("https://umts-backend.herokuapp.com/api/auth/profile", values)
                             .then(res => {
                                 setStatus({msg: 'Profile Updated Successfully'});
-                                //setUser(res.data);
+                              //setUser(res.data);
                                 resetForm();
                                 console.log(res.data);
                             })

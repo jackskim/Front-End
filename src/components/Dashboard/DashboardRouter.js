@@ -16,12 +16,12 @@ function DashboardRouter(props) {
       <Route 
         exact
         path="/dashboard/updateitem/:itemid"
-        render={props => <UpdateItem {...props} />}
+        render={renderProps => <UpdateItem {...renderProps} />}
       />
       <Route 
         exact
         path="/dashboard/updateprofile"
-        render={props => <UpdateProfile {...props} user={props.user} />}
+        render={renderProps => <UpdateProfile {...renderProps} user={props.user} setUser={props.setUser} />}
       />
     </React.Fragment>
   );

@@ -20,20 +20,14 @@ function Dashboard(props) {
       render: () => {
         return (
           <Tab.Pane>
-            <DashboardRouter {...props} user={props.user} />
+            <DashboardRouter {...props} user={props.user} setUser={props.setUser} />
           </Tab.Pane>
         );
       }
     },
     { menuItem: ( 
       <Menu.Item key='update-profile'>
-        <Link to= {{
-          pathname: "/dashboard/updateprofile",
-          state: {
-            user: props.user
-          }
-        }}
-        >
+        <Link to="/dashboard/updateprofile">
           Update Profile 
         </Link>
       </Menu.Item>
@@ -41,7 +35,7 @@ function Dashboard(props) {
       render: () => {
         return (
           <Tab.Pane>
-            <DashboardRouter {...props} user={props.user} />
+            <DashboardRouter {...props} user={props.user} setUser={props.setUser} />
           </Tab.Pane>
         );
       }
