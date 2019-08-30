@@ -38,8 +38,7 @@ function UpdateProfile (props) {
                             .put("https://umts-backend.herokuapp.com/api/auth/profile", values)
                             .then(res => {
                                 setStatus({msg: 'Profile Updated Successfully'});
-                              //setUser(res.data);
-                                resetForm();
+                                resetForm({...res.data.user, password:''});
                                 console.log(res.data);
                             })
                             .catch( err => {
@@ -127,7 +126,6 @@ function UpdateProfile (props) {
                              >
                                  Submit
                             </Button>
-                            {status && status.msg && (<p>{status.msg}</p>)}  
                         </Segment>
                     </Form>
                 )}        
