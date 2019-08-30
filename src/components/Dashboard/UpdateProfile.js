@@ -14,7 +14,6 @@ const UpdateProfileSchema =  Yup.object().shape({
 
 function UpdateProfile (props) {
 
-  console.log('UpdateProfile', props);
   const user = props.user;
   const setUser = props.setUser;
     return (
