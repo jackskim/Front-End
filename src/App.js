@@ -7,7 +7,6 @@ import CreateProfile from './components/CreateProfile';
 import PrivateRoute from './components/PrivateRoute.js';
 import Logout from './components/Logout.js';
 import Card from './components/Card';
-import ItemCardInfo from './components/ItemCardInfo';
 
 function App() {
   const [user, setUser] = useState({});
@@ -15,11 +14,12 @@ function App() {
 
   return (
     <div className="App">
-      <PrivateRoute
+      <Route
         exact
         path="/"
         component={Home}
       />
+      <Route path="/card/:id" component={Card} />
       <Route
         exact
         path="/login"
@@ -39,14 +39,6 @@ function App() {
         exact
         path="/createprofile"
         render={props => <CreateProfile {...props} user={user} />}
-      />
-      <Route
-        path="/cards/:id" 
-        component={Card}
-      />
-      <Route
-        path="/itemcardinfo/:id"
-        render={props => <ItemCardInfo {...props} setItem={setItem} />}
       />
     </div>
   );

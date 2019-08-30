@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Container } from 'semantic-ui-react';
-import Card from './Card';
-
+import ItemCardInfo from './ItemCardInfo';
 
 function ItemCardList(props) {
     const [itemCards, setItemCards] = useState([]);
@@ -18,17 +18,19 @@ function ItemCardList(props) {
             });
     }, []);
 
-
     return (
         <Container className='itemcard-list'>
             <div>
                 {itemCards.map(itemCard => {
-                    return <Card {...props} name={itemCard.name} address={itemCard.address} price={itemCard.price} imageUrl={itemCard.imageUrl} />
+                    return (
+                        <Link key={itemCard.id} to={`/card/${itemCard.id}`}>
+                            <ItemCardInfo {...itemCard} />
+                        </Link>
+                    )
                 })}
             </div>
         </Container>
     );
-
 }
 
 export default ItemCardList;
