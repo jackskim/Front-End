@@ -15,7 +15,6 @@ const UpdateProfileSchema =  Yup.object().shape({
 function UpdateProfile (props) {
 
   const user = props.user;
-  const setUser = props.setUser;
     return (
         <Grid textAlign="center" style={{ height: '80vh' }} verticalAlign="middle" >
             <Grid.Column style={{ maxWidth: 450 }}>
