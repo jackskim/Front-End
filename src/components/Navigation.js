@@ -20,6 +20,9 @@ function Navigation(props) {
       <Menu.Item key='logout'>
         <NavLink to="/logout">Log Out</NavLink>
       </Menu.Item> 
+      <Menu.Item key='rent-out-item'>
+        <NavLink to="/rentoutitem">List Item</NavLink>
+      </Menu.Item>
     </Menu>
   );
 }
