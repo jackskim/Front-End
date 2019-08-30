@@ -45,7 +45,7 @@ function App() {
         component={Card}
       />
       <Route
-        path="/itemcardinfo"
+        path="/itemcardinfo/:id"
         render={props => <ItemCardInfo {...props} setItem={setItem} />}
       />
     </div>
