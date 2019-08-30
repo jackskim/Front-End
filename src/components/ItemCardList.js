@@ -4,7 +4,7 @@ import { Container } from 'semantic-ui-react';
 import Card from './Card';
 
 
-export default function ItemCardList() {
+function ItemCardList(props) {
     const [itemCards, setItemCards] = useState([]);
 
     useEffect(() => {
@@ -23,10 +23,12 @@ export default function ItemCardList() {
         <Container className='itemcard-list'>
             <div>
                 {itemCards.map(itemCard => {
-                    return <Card name={itemCard.name} address={itemCard.address} price={itemCard.price} imageUrl={itemCard.imageUrl} />
+                    return <Card {...props} name={itemCard.name} address={itemCard.address} price={itemCard.price} imageUrl={itemCard.imageUrl} />
                 })}
             </div>
         </Container>
     );
 
 }
+
+export default ItemCardList;

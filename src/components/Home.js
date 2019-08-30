@@ -7,7 +7,7 @@ function Home(props) {
   return (
     <Container fluid>
       <Navigation />
-      < ItemCardList />
+      < ItemCardList {...props} />
     </Container>
   );
 }
