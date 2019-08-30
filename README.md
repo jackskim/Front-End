@@ -1,6 +1,6 @@
 # TSTUFF - Front-End
 
-## Live Website  – (In progress)  
+## Live Website  – [TSTUFF App](https://tstuff-frontend.netlify.com/)
 ### An app for tech enthusiasts who want to rent or rent out tech equipment.
 
 ## Features
