@@ -1,12 +1,14 @@
 import React, { useEffect, useState, Fragment } from "react";
 import ItemCardInfo from './ItemCardInfo';
 import Navigation from './Navigation';
+import { Formik, Form, Field } from 'formik';
+import axiosWithAuth from '../axiosWithAuth.js';
 
 const Card = props => {
     const [item, setItem] = useState();
+    const id = props.match.params.id;
 
     useEffect(() => {
-      const id = props.match.params.id;
       (async () => {
         try {
           const response = await fetch(`https://umts-backend.herokuapp.com/api/rentItems/${id}`);
@@ -24,6 +26,56 @@ const Card = props => {
       <Fragment>
         <Navigation />
         <ItemCardInfo {...item} />
+        <Formik
+          initialValues={{ quantity: 1, startDate: '', endDate: '', pickupTime: '', pickupLocation: '' }}
+          onSubmit={async (values, { resetForm, setStatus }) => {
+            const response = await axiosWithAuth().post( `https://umts-backend.herokuapp.com/api/rentItems/${id}/bookings`, values);
+            const booking = response.data.booking;
+            setStatus({ booked: true })
+          }} 
+        >
+          {({ isSubmitting, status }) => (
+            <Form>
+              Rent This Item
+              <Field
+                className='field'
+                type='number'
+                name='quantity'
+                placeholder='Quantity'
+              />
+              <Field
+                className='field'
+                type='text'
+                name='startDate'
+                placeholder='Start Date'
+              />
+              <Field
+                className='field'
+                type='text'
+                name='endDate'
+                placeholder='End Date'
+              />
+              <Field
+                className='field'
+                type='text'
+                name='pickupTime'
+                placeholder='Pickup Time'
+              />
+              <Field
+                className='field'
+                type='text'
+                name='pickupLocation'
+                placeholder='Pickup Location'
+              />
+              <button type="submit">
+                Rent Item Now
+              </button>
+              {status && status.booked && (
+                <p>Item booked successfully!</p>
+              )}
+            </Form>
+          )}
+        </Formik>
       </Fragment>
     )
 };
