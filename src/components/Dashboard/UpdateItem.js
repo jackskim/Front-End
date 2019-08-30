@@ -17,7 +17,6 @@ const UpdateItemSchema =  Yup.object().shape({
 
 
 function UpdateItem(props) {
-  
   const [ item, setItem ] = useState({});
 
   useEffect(() => {
@@ -43,8 +42,9 @@ function UpdateItem(props) {
               description: `${item.description}`,
               price: `${item.price}`,
               address: `${item.address}`,
+              catId: 1,
               imageUrl: `${item.imageUrl}`, 
-              userid: `${item.userId}`,
+              userId: `${item.userId}`,
               status: `${item.status}`,
               isDeleteButton: false,
             }}
@@ -63,6 +63,7 @@ function UpdateItem(props) {
                     setStatus(err);
                   })
                 } else {
+                  delete values.isDeleteButton;
                   axiosWithAuth()
                     .put(`https://umts-backend.herokuapp.com/api/rentItems/${item.id}`, values)
                     .then(res => {
@@ -84,7 +85,7 @@ function UpdateItem(props) {
                 <Field
                     className='field'
                       type='text'
-                      name='userid'
+                      name='userId'
                       style={{display:'none'}}
                   />
                   <Field

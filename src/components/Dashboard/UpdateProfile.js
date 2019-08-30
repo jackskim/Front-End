@@ -38,9 +38,10 @@ function UpdateProfile (props) {
                         axiosWithAuth()
                             .put("https://umts-backend.herokuapp.com/api/auth/profile", values)
                             .then(res => {
-                                setStatus(res.data);
+                                setStatus({msg: 'Profile Updated Successfully'});
+                                //setUser(res.data);
                                 resetForm();
-                                props.history.push('/');
+                                console.log(res.data);
                             })
                             .catch( err => {
                                 console.log(err);
@@ -48,7 +49,7 @@ function UpdateProfile (props) {
                             })
                     }}
                 >    
-                {({ isSubmitting, errors, touched }) => (
+                {({ isSubmitting, errors, touched, status }) => (
                     <Form className='form'>
                         <Segment stacked>
                             <Field
@@ -127,6 +128,7 @@ function UpdateProfile (props) {
                              >
                                  Submit
                             </Button>
+                            {status && status.msg && (<p>{status.msg}</p>)}  
                         </Segment>
                     </Form>
                 )}        

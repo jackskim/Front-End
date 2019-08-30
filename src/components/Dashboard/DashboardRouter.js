@@ -11,7 +11,7 @@ function DashboardRouter(props) {
       <Route 
         exact
         path="/dashboard/itemlist"
-        render={props => <ItemList {...props} user={props.user} />}
+        render={renderProps => <ItemList {...renderProps} user={props.user} />}
       />
       <Route 
         exact
