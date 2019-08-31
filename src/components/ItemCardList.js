@@ -20,8 +20,9 @@ function ItemCardList(props) {
     }, []);
 
     return (
-        <Container className='itemcard-list grid-view'>
-            <div>
+        <Container>
+            <Header as="h2" style={{color: "#2B4162"}} textAlign="center">Items For Rent</Header>
+            <div className='itemcard-list grid-view'>
                 {itemCards.map(itemCard => {
                     return (
                         <Link key={itemCard.id} to={`/card/${itemCard.id}`}>
