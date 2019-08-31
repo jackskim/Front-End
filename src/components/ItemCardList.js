@@ -21,6 +21,7 @@ function ItemCardList(props) {
 
     return (
         <Container textAlign="middle">
+            <Header as="h1">Items for Rent</Header>
             <div className='itemcard-list grid-view'>
                 {itemCards.map(itemCard => {
                     return (
