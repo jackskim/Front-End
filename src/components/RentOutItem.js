@@ -5,6 +5,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Header, Button, Grid, Message, Segment, Container } from 'semantic-ui-react';
 import Navigation from './Navigation.js';
+import axiosWithAuth from '../axiosWithAuth.js';
 
 const RentOutItemSchema = Yup.object().shape({
   description: Yup.string(),
@@ -29,7 +30,8 @@ function RentOutItem (props) {
             initialValues={{ description: '', price: '', address: '', imageUrl: '', name: ''}}
             validationSchema={RentOutItemSchema}
             onSubmit={( values, { resetForm, setStatus }) => {
-              axios.post('https://umts-backend.herokuapp.com/api/rentItems', values )
+              axiosWithAuth()
+                  .post('https://umts-backend.herokuapp.com/api/rentItems', values )
                   .then( res => {
                       resetForm();
                       props.history.push('/');
