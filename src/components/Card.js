@@ -34,7 +34,7 @@ const Card = props => {
             setStatus({ booked: true })
           }} 
         >
-          {({ isSubmitting, status }) => (
+          {({ isSubmitting, status, touched }) => (
             <Form>
               Rent This Item
               <Field
@@ -70,9 +70,15 @@ const Card = props => {
               <button type="submit">
                 Rent Item Now
               </button>
+              { touched.booked && status.booked && <span className="form__error">{status.booked}</span> }
+              {/* try {
+                if (status && status.booked) {
+                  
+                }
+              }
               {status && status.booked && (
                 <p>Item booked successfully!</p>
-              )}
+              )} */}
             </Form>
           )}
         </Formik>
