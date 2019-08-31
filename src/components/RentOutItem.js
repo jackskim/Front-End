@@ -46,12 +46,12 @@ function RentOutItem (props) {
               <Segment stacked>
               <Field
                 className="field"
-                component="textarea"
+                component="input"
                 type="text"
-                name="description"
-                placeholder="Description"
+                name="name"
+                placeholder="Name"
               />
-              { touched.description && errors.description && <p className="form__error">{errors.description}</p> }
+              { touched.name && errors.name && <p className="form__error">{errors.name}</p> }
               <Field
                 className="field"
                 component="input"
@@ -78,13 +78,12 @@ function RentOutItem (props) {
               { touched.imageUrl && errors.imageUrl && <p className="form__error">{errors.imageUrl}</p> }
               <Field
                 className="field"
-                component="input"
+                component="textarea"
                 type="text"
-                name="name"
-                placeholder="Name"
+                name="description"
+                placeholder="Description"
               />
-              { touched.name && errors.name && <p className="form__error">{errors.name}</p> }
-              
+              { touched.description && errors.description && <p className="form__error">{errors.description}</p> }
               <Button 
                 style={{
                   color: "white",
