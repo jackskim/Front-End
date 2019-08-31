@@ -2,9 +2,9 @@ import React from 'react';
 import { Formik, Form, Field, } from 'formik';
 import * as Yup from 'yup';
 import { Grid, Segment, Header, Button } from 'semantic-ui-react';
-import axiosWithAuth from '../axiosWithAuth.js'
+import axiosWithAuth from '../../axiosWithAuth.js'
 
-const CreateProfileSchema =  Yup.object().shape({
+const UpdateProfileSchema =  Yup.object().shape({
     phone: Yup.number().required("Please enter your phone number"),
     street: Yup.string(),
     city: Yup.string().required("Please enter your city"),
@@ -12,32 +12,33 @@ const CreateProfileSchema =  Yup.object().shape({
 });
 
 
-function CreateProfile (props) {
+function UpdateProfile (props) {
 
+  const user = props.user;
     return (
-        <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle" >
+        <Grid textAlign="center" style={{ height: '80vh' }} verticalAlign="middle" >
             <Grid.Column style={{ maxWidth: 450 }}>
-                <Header as="h2" style={{ color: '#2B4162' }}>Create Profile</Header>
+                <Header as="h2" style={{ color: '#2B4162' }}>Update Profile</Header>
                 <Formik
                     initialValues = {{ 
-                        firstName: `${props.user.firstName}`,
-                        lastName: `${props.user.lastName}`,
-                        email: `${props.user.email}`,
+                        firstName: user.firstName || '',
+                        lastName: user.lastName || '',
+                        email: user.email || '',
                         password: '',
-                        phone: '',
-                        street: '',
-                        city: '',
-                        state: '',
-                        avatarUrl: '' 
+                        phone: user.phone || '',
+                        street: user.street || '',
+                        city: user.city || '',
+                        state: user.state ||'',
+                        avatarUrl: user.avatarUrl ||'' 
                     }}
-                    validationSchema = {CreateProfileSchema}
+                    validationSchema = {UpdateProfileSchema}
                     onSubmit = {( values, { resetForm, setStatus }) => {
                         axiosWithAuth()
                             .put("https://umts-backend.herokuapp.com/api/auth/profile", values)
                             .then(res => {
-                                setStatus(res.data);
-                                resetForm();
-                                props.history.push('/');
+                                setStatus({msg: 'Profile Updated Successfully'});
+                                resetForm({...res.data.user, password:''});
+                                console.log(res.data);
                             })
                             .catch( err => {
                                 console.log(err);
@@ -45,7 +46,7 @@ function CreateProfile (props) {
                             })
                     }}
                 >    
-                {({ isSubmitting, errors, touched }) => (
+                {({ isSubmitting, errors, touched, status }) => (
                     <Form className='form'>
                         <Segment stacked>
                             <Field
@@ -133,4 +134,4 @@ function CreateProfile (props) {
     );
 }
 
-export default CreateProfile;
+export default UpdateProfile;

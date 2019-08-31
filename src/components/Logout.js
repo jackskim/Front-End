@@ -1,7 +1,8 @@
 import React from 'react';
 import  { Redirect } from 'react-router-dom';
 
-function Logout() {
+function Logout(props) {
+  props.setUser({});
   localStorage.removeItem('token');
   return (
     <Redirect to='/login' />

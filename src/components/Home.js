@@ -6,8 +6,9 @@ import ItemCardList from './ItemCardList';
 function Home(props) {
   return (
     <Container fluid>
-      <Navigation />
+      <Navigation user={props.user} setUser={props.setUser}/>
       <ItemCardList />
+
     </Container>
   );
 }
