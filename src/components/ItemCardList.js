@@ -29,7 +29,7 @@ function ItemCardList(props) {
                             <ItemCardInfo {...itemCard} />
                         </Link>
                     )
-                })}
+                })}d
             </div>
         </Container>
     );
