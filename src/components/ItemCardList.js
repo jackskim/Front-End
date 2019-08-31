@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Container } from 'semantic-ui-react';
 import ItemCardInfo from './ItemCardInfo';
+import '../index.css';
 
 function ItemCardList(props) {
     const [itemCards, setItemCards] = useState([]);
@@ -19,7 +20,7 @@ function ItemCardList(props) {
     }, []);
 
     return (
-        <Container className='itemcard-list'>
+        <Container className='itemcard-list grid-view'>
             <div>
                 {itemCards.map(itemCard => {
                     return (

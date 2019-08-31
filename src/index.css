@@ -12,35 +12,12 @@ code {
     monospace;
 }
 
-/*
-.container {
-  padding-top: 10%;
-}
-
-.container,
-.form {
+.grid-view {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-.form__error {
-  font-size: 12px;
-  color: red;
-  margin-bottom: 5px;
+.grid-view div.card.ui {
+  margin: 1.25rem;
 }
-
-.field {
-  padding: 5px 10px;
-  width: 100%;
-}
-
-.field-password {
-  margin-top: 10px;
-}
-
-.button {
-  margin-top: 10px;
-  padding: 8px 30px;
-}*/
