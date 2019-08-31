@@ -27,7 +27,7 @@ function RentOutItem (props) {
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" style={{color: "#2B4162"}} textAlign="center">Rent Out Items</Header>
           <Formik
-            initialValues={{ description: '', price: '', address: '', imageUrl: '', name: ''}}
+            initialValues={{ catId:1, description: '', price: '', address: '', imageUrl: '', name: ''}}
             validationSchema={RentOutItemSchema}
             onSubmit={( values, { resetForm, setStatus }) => {
               axiosWithAuth()
