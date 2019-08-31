@@ -10,6 +10,7 @@ import Login from './components/Login.js';
 import Dashboard from './components/Dashboard/Dashboard.js';
 import jwtDecode from 'jwt-decode';
 import axiosWithAuth from './axiosWithAuth.js';  
+import RentOutItem from './components/RentOutItem';
 
 function App() {
   const [user, setUser] = useState({});
@@ -60,6 +61,11 @@ function App() {
       <PrivateRoute
         path="/dashboard"
         component={props => <Dashboard {...props} user={user} setUser={setUser} />}
+      />
+      <Route
+        exact
+        path="/rentoutitem"
+        component={RentOutItem}
       />
     </div>
   );
