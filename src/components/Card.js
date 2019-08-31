@@ -31,6 +31,7 @@ const Card = props => {
           onSubmit={async (values, { resetForm, setStatus }) => {
             const response = await axiosWithAuth().post( `https://umts-backend.herokuapp.com/api/rentItems/${id}/bookings`, values);
             const booking = response.data.booking;
+            console.log(response);
             setStatus({ booked: true })
           }} 
         >
