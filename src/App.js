@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
-
 import SignUp from './components/SignUp.js';
 import Home from './components/Home.js';
 import CreateProfile from './components/CreateProfile';
 import PrivateRoute from './components/PrivateRoute.js';
 import Logout from './components/Logout.js';
+import Card from './components/Card';
 import Login from './components/Login.js';
 import Dashboard from './components/Dashboard/Dashboard.js';
 import jwtDecode from 'jwt-decode';
@@ -14,6 +14,7 @@ import RentOutItem from './components/RentOutItem';
 
 function App() {
   const [user, setUser] = useState({});
+  const [item, setItem] = useState({});
 
   useEffect(()=> {
     const token = localStorage.getItem('token');
@@ -38,6 +39,8 @@ function App() {
         path="/"
         component={props => <Home {...props} user={user} />}
       />
+
+      <Route path="/card/:id" component={Card} />
       <Route
         exact
         path="/login"
@@ -66,6 +69,11 @@ function App() {
         exact
         path="/rentoutitem"
         component={RentOutItem}
+      />
+      <Route
+        exact
+        path="/createprofile"
+        render={props => <CreateProfile {...props} user={user} />}
       />
     </div>
   );

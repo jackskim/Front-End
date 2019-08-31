@@ -12,6 +12,16 @@ code {
     monospace;
 }
 
+.grid-view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.grid-view div.card.ui {
+  margin: 1.25rem;
+}
+
 
 .form__error {
   font-size: 12px;
@@ -27,5 +37,3 @@ code {
   border-radius: 5px;
   margin: 15px 0;
 }
-
-
