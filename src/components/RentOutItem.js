@@ -6,12 +6,14 @@ import Navigation from './Navigation.js';
 import axiosWithAuth from '../axiosWithAuth.js';
 
 const RentOutItemSchema = Yup.object().shape({
-  description: Yup.string(),
+  description: Yup.string()
+            .required('Please enter an item description'),
   price: Yup.number()
             .required('Please enter an item price'),
   address: Yup.string()
             .required('Please enter an address'),
-  imageUrl: Yup.string(),
+  imageUrl: Yup.string()
+            .required('Please enter an image url'),
   name: Yup.string()
             .required('Please enter an item name')
 });
@@ -25,7 +27,7 @@ function RentOutItem (props) {
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" style={{color: "#2B4162"}} textAlign="center">Rent Out Items</Header>
           <Formik
-            initialValues={{ catId:1, description: '', price: '', address: '', imageUrl: '', name: ''}}
+            initialValues={{ catId:2, description: '', price: '', address: '', imageUrl: '', name: ''}}
             validationSchema={RentOutItemSchema}
             onSubmit={( values, { resetForm, setStatus }) => {
               axiosWithAuth()
@@ -49,7 +51,7 @@ function RentOutItem (props) {
                 component="input"
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder="Name (Required)"
               />
               { touched.name && errors.name && <p className="form__error">{errors.name}</p> }
               <Field
@@ -57,7 +59,7 @@ function RentOutItem (props) {
                 component="input"
                 type="text"
                 name="price"
-                placeholder="Price"
+                placeholder="Price (Required)"
               />
               { touched.price && errors.price && <p className="form__error">{errors.price}</p> }
               <Field
@@ -65,7 +67,7 @@ function RentOutItem (props) {
                 component="input"
                 type="text"
                 name="address"
-                placeholder="Address"
+                placeholder="Address (Required)"
               />
               { touched.address && errors.address && <p className="form__error">{errors.address}</p> }
               <Field
@@ -73,7 +75,7 @@ function RentOutItem (props) {
                 component="input"
                 type="text"
                 name="imageUrl"
-                placeholder="ImageUrl"
+                placeholder="ImageUrl (Required)"
               />
               { touched.imageUrl && errors.imageUrl && <p className="form__error">{errors.imageUrl}</p> }
               <Field
@@ -81,7 +83,7 @@ function RentOutItem (props) {
                 component="textarea"
                 type="text"
                 name="description"
-                placeholder="Description"
+                placeholder="Description (Required)"
               />
               { touched.description && errors.description && <p className="form__error">{errors.description}</p> }
               <Button 
