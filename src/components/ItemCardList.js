@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Container } from 'semantic-ui-react';
+import { Container, Header } from 'semantic-ui-react';
 import ItemCardInfo from './ItemCardInfo';
 import '../index.css';
 
@@ -20,8 +20,8 @@ function ItemCardList(props) {
     }, []);
 
     return (
-        <Container className='itemcard-list grid-view'>
-            <div>
+        <Container textAlign="middle">
+            <div className='itemcard-list grid-view'>
                 {itemCards.map(itemCard => {
                     return (
                         <Link key={itemCard.id} to={`/card/${itemCard.id}`}>
