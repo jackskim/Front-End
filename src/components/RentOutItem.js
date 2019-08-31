@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { Header, Button, Grid, Message, Segment, Container } from 'semantic-ui-react';
+import { Header, Button, Grid, Segment, Container } from 'semantic-ui-react';
 import Navigation from './Navigation.js';
 import axiosWithAuth from '../axiosWithAuth.js';
 
