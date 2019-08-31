@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import ItemCardInfo from './ItemCardInfo';
 import Navigation from './Navigation';
 import { Formik, Form, Field } from 'formik';
@@ -19,7 +19,7 @@ const Card = props => {
           console.log(error);
         }
       })();
-    }, [props.match.params.id]);
+    }, [id]);
 
     if (!item) return <p>Loading...</p>;
 
@@ -34,7 +34,7 @@ const Card = props => {
             initialValues={{ quantity: 1, startDate: '', endDate: '', pickupTime: '', pickupLocation: '' }}
             onSubmit={async (values, { resetForm, setStatus }) => {
               const response = await axiosWithAuth().post( `https://umts-backend.herokuapp.com/api/rentItems/${id}/bookings`, values);
-              const booking = response.data.booking;
+              //const booking = response.data.booking;
               console.log(response);
               setStatus({ booked: true })
             }} 
