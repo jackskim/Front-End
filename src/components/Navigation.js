@@ -12,7 +12,7 @@ function Navigation(props) {
         <NavLink to="/">Home</NavLink>
       </Menu.Item>
       <Menu.Item key='dashboard'>
-        <NavLink to="/dashboard">Dashboard</NavLink>
+        <NavLink to={`/dashboard`}>Dashboard</NavLink>
       </Menu.Item>
       <Menu.Item key='list-item'>
         <NavLink to="/rentoutitem">List Item</NavLink>
