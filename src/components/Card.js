@@ -51,19 +51,19 @@ const Card = props => {
                 />
                 <Field
                   className='field'
-                  type='text'
+                  type='date'
                   name='startDate'
                   placeholder='Start Date'
                 />
                 <Field
                   className='field'
-                  type='text'
+                  type='date'
                   name='endDate'
                   placeholder='End Date'
                 />
                 <Field
                   className='field'
-                  type='text'
+                  type='time'
                   name='pickupTime'
                   placeholder='Pickup Time'
                 />
