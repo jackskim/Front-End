@@ -2,6 +2,11 @@
 
 ## Live Website  – [TSTUFF App](https://tstuff-frontend.netlify.com/)
 ### An app for tech enthusiasts who want to rent or rent out tech equipment.
+If you don't want to create an account, you can log in to demo the app with:
+
+Email: jondoe@example.com
+
+Password: password
 
 ## Features
 - Users can login and create a profile
