@@ -14,7 +14,6 @@ import RentOutItem from './components/RentOutItem';
 
 function App() {
   const [user, setUser] = useState({});
-  const [item, setItem] = useState({});
 
   useEffect(()=> {
     const token = localStorage.getItem('token');
