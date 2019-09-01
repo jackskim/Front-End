@@ -20,8 +20,8 @@ function ItemCardList(props) {
     }, []);
 
     return (
-        <Container textAlign="middle">
-            <Header as="h1">Items for Rent</Header>
+        <Container fluid >
+          <Header as="h1" textAlign="center" style={{margin: '50px auto 20px'}}> Items for Rent</Header>
             <div className='itemcard-list grid-view'>
                 {itemCards.map(itemCard => {
                     return (

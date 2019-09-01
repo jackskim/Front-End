@@ -51,7 +51,7 @@ function Dashboard(props) {
           <Header as="h2">
             Welcome back {props.user.firstName}!
           </Header>
-          <Tab panes={panes} /> 
+          <Tab style={{marginBottom: '50px'}} panes={panes} /> 
         </Container>
         <Redirect to="/dashboard/itemlist"/>
     </Container>

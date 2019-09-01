@@ -26,9 +26,9 @@ const Card = props => {
     return (
       <Container fluid>
         <Navigation />
-        <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as="h2" style={{color: "#2B4162"}} textAlign="center">Rent Out Items</Header>
+        <Grid centered  style={{ height: '100vh' }} verticalAlign="middle">
+        <Grid.Column style={{ maxWidth: 450 }} >
+          <Header as="h1" style={{color: "#2B4162", margin: "50px 0"}} textAlign="center">Rent Item</Header>
           <ItemCardInfo {...item} />
           <Formik
             initialValues={{ quantity: 1, startDate: '', endDate: '', pickupTime: '', pickupLocation: '' }}
@@ -51,19 +51,19 @@ const Card = props => {
                 />
                 <Field
                   className='field'
-                  type='text'
+                  type='date'
                   name='startDate'
                   placeholder='Start Date'
                 />
                 <Field
                   className='field'
-                  type='text'
+                  type='date'
                   name='endDate'
                   placeholder='End Date'
                 />
                 <Field
                   className='field'
-                  type='text'
+                  type='time'
                   name='pickupTime'
                   placeholder='Pickup Time'
                 />

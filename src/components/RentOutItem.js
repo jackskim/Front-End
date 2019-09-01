@@ -25,7 +25,7 @@ function RentOutItem (props) {
       <Navigation />
       <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
         <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as="h2" style={{color: "#2B4162"}} textAlign="center">Rent Out Items</Header>
+          <Header as="h2" style={{color: "#2B4162"}} textAlign="center">List Your Item</Header>
           <Formik
             initialValues={{ catId:2, description: '', price: '', address: '', imageUrl: '', name: ''}}
             validationSchema={RentOutItemSchema}
