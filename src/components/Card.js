@@ -27,9 +27,9 @@ const Card = props => {
       <Container fluid>
         <Navigation />
         <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as="h2" style={{color: "#2B4162"}} textAlign="center">Rent Out Items</Header>
-          <ItemCardInfo {...item} />
+        <Grid.Column style={{ maxWidth: 450 }} >
+          <Header as="h1" style={{color: "#2B4162", margin: "50px 0"}} textAlign="center">Rent Item</Header>
+          <ItemCardInfo textAlign="center"  {...item} />
           <Formik
             initialValues={{ quantity: 1, startDate: '', endDate: '', pickupTime: '', pickupLocation: '' }}
             onSubmit={async (values, { resetForm, setStatus }) => {
