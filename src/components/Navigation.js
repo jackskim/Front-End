@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Container, Input, Menu } from 'semantic-ui-react';
 
-function Navigation({ searchInput, handleSearchInput }) {
+function Navigation({ searchInput, handleSearchInput, ignoreSearch }) {
   return (
     <Menu pointing className='fixed'>
       <Container>
@@ -21,11 +21,13 @@ function Navigation({ searchInput, handleSearchInput }) {
         <Menu.Item key='logout'>
           <NavLink to="/logout">Log Out</NavLink>
         </Menu.Item>
-        <Menu.Menu position='right'>
-          <Menu.Item>
-            <Input icon='search' placeholder='Search...' onChange={handleSearchInput} value={searchInput} />
-          </Menu.Item>
-        </Menu.Menu>
+        {!ignoreSearch && (
+          <Menu.Menu position='right'>
+            <Menu.Item>
+              <Input icon='search' placeholder='Search...' onChange={handleSearchInput} value={searchInput} />
+            </Menu.Item>
+          </Menu.Menu>
+        )}
       </Container>
     </Menu>
   );

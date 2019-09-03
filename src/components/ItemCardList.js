@@ -5,6 +5,13 @@ import { Container, Header } from 'semantic-ui-react';
 import ItemCardInfo from './ItemCardInfo';
 import '../index.css';
 
+const getVisibleItems = (items, filter) => {
+  return filter
+    ? items.filter(
+      item => item.name.toLowerCase().includes(filter) || item.description.toLowerCase().includes(filter)
+    ) : items;
+};
+
 function ItemCardList({ searchInput }) {
   let [itemCards, setItemCards] = useState([]);
 
@@ -19,13 +26,11 @@ function ItemCardList({ searchInput }) {
       });
   }, []);
 
-  if (searchInput) itemCards = itemCards.filter(card => card.name.includes(searchInput) || card.description.includes(searchInput));
-
   return (
     <Container fluid>
       <Header as="h1" textAlign="center" style={{ margin: '75px auto 20px' }}> Items for Rent</Header>
       <div className='itemcard-list grid-view'>
-        {itemCards.map(itemCard => {
+        {getVisibleItems(itemCards, searchInput).map(itemCard => {
           return (
             <Link key={itemCard.id} to={`/card/${itemCard.id}`}>
               <ItemCardInfo {...itemCard} />
