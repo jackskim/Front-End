@@ -45,8 +45,8 @@ function Dashboard(props) {
 
   return (
     <Container fluid>
-      <Navigation />
-        <Container text textAlign='center'>
+      <Navigation ignoreSearch={true} />
+      <Container text textAlign='center' style={{marginTop: 75}}>
           <Image src={avatarSrc} verticalAlign='middle' size='tiny' circular/>
           <Header as="h2">
             Welcome back {props.user.firstName}!
