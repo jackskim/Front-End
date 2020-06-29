@@ -39,4 +39,4 @@ Password: password
 ## Authors 
 - [Jonathan Picazo](https://github.com/macjabeth)
 - [Julian Yates](https://github.com/julian2323)
-- [Seong Kim](https://github.com/seongck)
+- [Jack Kim](https://github.com/jackskim)
